@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Profile Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container glass-panel">
+        <header>
+            <h1>Insta<span>Guard</span></h1>
+            <p>Protect your feed. Check if an account is real or a bot.</p>
+        </header>
+
+        <form id="prediction-form">
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="ex: gandham_yashwanth" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullname" placeholder="ex: Gandham Yashwanth">
+                </div>
+
+                <div class="input-group">
+                    <label>Bio / Description</label>
+                    <input type="text" id="bio" placeholder="Copy & paste their bio here.">
+                </div>
+
+                <div class="input-group">
+                    <label>Has Profile Picture?</label>
+                    <select id="profile_pic">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Has External URL in Bio?</label>
+                    <select id="external_url">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Is Account Private?</label>
+                    <select id="private">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Number of Posts</label>
+                    <input type="number" id="posts" value="0" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Number of Followers</label>
+                    <input type="number" id="followers" value="0" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Number of Follows</label>
+                    <input type="number" id="follows" value="0" required>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-btn">
+                <span class="btn-text">Analyze Profile</span>
+                <div class="loader" id="loader"></div>
+            </button>
+        </form>
+
+        <div id="result-container" class="hidden">
+            <div id="result-verdict" class="verdict"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const btn = document.getElementById('submit-btn');
+            const btnText = document.querySelector('.btn-text');
+            const loader = document.getElementById('loader');
+            const resultContainer = document.getElementById('result-container');
+            const resultVerdict = document.getElementById('result-verdict');
+
+            // UI Loading state
+            btn.disabled = true;
+            btnText.style.opacity = '0';
+            loader.style.display = 'block';
+            resultContainer.classList.add('hidden');
+            resultVerdict.className = 'verdict'; // reset classes
+
+            const data = {
+                username: document.getElementById('username').value,
+                fullname: document.getElementById('fullname').value,
+                bio: document.getElementById('bio').value,
+                profile_pic: document.getElementById('profile_pic').value,
+                external_url: document.getElementById('external_url').value,
+                private: document.getElementById('private').value,
+                posts: document.getElementById('posts').value,
+                followers: document.getElementById('followers').value,
+                follows: document.getElementById('follows').value
+            };
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                // Add tiny artificial delay for animation impact
+                setTimeout(() => {
+                    resultContainer.classList.remove('hidden');
+                    if (result.result === 'Fake') {
+                        resultVerdict.textContent = 'Looks like a Bot!';
+                        resultVerdict.classList.add('fake');
+                    } else if (result.result === 'Real') {
+                        resultVerdict.textContent = 'Looks Legit!';
+                        resultVerdict.classList.add('real');
+                    } else {
+                        resultVerdict.textContent = 'Error processing request.';
+                    }
+
+                    // Reset button
+                    btn.disabled = false;
+                    btnText.style.opacity = '1';
+                    loader.style.display = 'none';
+                }, 800);
+
+            } catch (error) {
+                console.error('Error:', error);
+                btn.disabled = false;
+                btnText.style.opacity = '1';
+                loader.style.display = 'none';
+                alert('Failed to connect to the AI model.');
+            }
+        });
+    </script>
+</body>
+
+</html>
