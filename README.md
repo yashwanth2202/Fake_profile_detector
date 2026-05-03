@@ -9,6 +9,10 @@ This project looks at simple details from a profile (like how many followers the
 - **Smart AI:** It automatically does the math to find suspicious patterns (like having 5,000 follows but 0 posts).
 - **Fast Results:** It gives you an instant verdict: "**Looks Legit!**" or "**Looks like a Bot!**"
 
+<p align="center">
+  <img src="assets/demo.webp" width="700" alt="InstaGuard Demo">
+</p>
+
 ---
 
 ## How to Run the App on Your Computer
