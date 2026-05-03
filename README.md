@@ -7,7 +7,7 @@ This project looks at simple details from a profile (like how many followers the
 ## What does it do?
 - **Easy to Use:** Just type in the profile details on our beautiful web page.
 - **Smart AI:** It automatically does the math to find suspicious patterns (like having 5,000 follows but 0 posts).
-- **Fast Results:** It gives you an instant verdict: "Looks Legit! ✨" or "Looks like a Bot! 🤖"
+- **Fast Results:** It gives you an instant verdict: "Looks Legit!" or "Looks like a Bot!"
 
 ---
 
