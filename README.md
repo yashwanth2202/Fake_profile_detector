@@ -10,7 +10,7 @@ This project looks at simple details from a profile (like how many followers the
 - **Fast Results:** It gives you an instant verdict: "**Looks Legit!**" or "**Looks like a Bot!**"
 
 <p align="center">
-  <img src="assets/demo.webp" width="700" alt="InstaGuard Demo">
+  <video src="assets/demo.mp4" width="700" controls="controls" autoplay="autoplay" loop="loop" muted="muted" playsinline></video>
 </p>
 
 ---
