@@ -1,53 +1,46 @@
-# InstaGuard: Fake Profile Detector 🤖✨
+# InstaGuard: Fake Profile Detector 
 
-InstaGuard is a full-stack Machine Learning application designed to detect fake or bot Instagram profiles with high accuracy. 
+Have you ever wondered if an Instagram account is a real person or just a bot? **InstaGuard** uses Artificial Intelligence to figure it out for you!
 
-By analyzing raw profile metadata (such as follower ratios, bio length, and naming patterns), our custom XGBoost model can instantly determine whether an account is a real human or a bot.
+This project looks at simple details from a profile (like how many followers they have, if they have a profile picture, and their username) and predicts if the account is fake or real with over 90% accuracy.
 
-## Features
-- **High Accuracy AI:** Powered by an XGBoost Classifier trained on hundreds of real and fake profile data points, achieving ~91% accuracy.
-- **Smart Feature Engineering:** Automatically extracts hidden patterns (like follower-to-following ratios and character composition) from raw human input.
-- **Beautiful Web Interface:** A sleek, dark-mode glassmorphism frontend built with Vanilla CSS and HTML.
-- **REST API:** A lightweight Flask backend that seamlessly bridges the Python AI model with the web interface.
+## What does it do?
+- **Easy to Use:** Just type in the profile details on our beautiful web page.
+- **Smart AI:** It automatically does the math to find suspicious patterns (like having 5,000 follows but 0 posts).
+- **Fast Results:** It gives you an instant verdict: "Looks Legit! ✨" or "Looks like a Bot! 🤖"
 
-## Technologies Used
-- **Machine Learning:** `XGBoost`, `scikit-learn`, `pandas`
-- **Backend:** `Python`, `Flask`
-- **Frontend:** `HTML5`, `CSS3` (Vanilla/Glassmorphism), `JavaScript`
+---
 
-## How to Run the Project Locally
+## How to Run the App on Your Computer
 
-### 1. Setup the Environment
-First, clone the repository and activate the virtual environment:
+It is incredibly easy to start the app yourself! Just follow these 3 simple steps:
+
+### Step 1: Download the Project
+Download or clone this project to your computer.
 ```bash
 git clone https://github.com/yashwanth2202/Fake_profile_detector.git
 cd Fake_profile_detector
-.\venv\Scripts\activate
 ```
 
-### 2. Install Dependencies
-Make sure all required libraries are installed:
+### Step 2: Install the Requirements
+You need to install the AI tools (like Pandas and Flask) so the code can run. Run this command in your terminal:
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the Web Application
-Start the Flask server to launch the web interface:
+### Step 3: Start the Website!
+Start the web server by running:
 ```bash
 python app.py
 ```
-Open your web browser and go to `http://127.0.0.1:5000` to interact with the AI!
+That's it! Now open your web browser (like Chrome or Safari) and go to this link:
+ **http://127.0.0.1:5000**
 
-### 4. (Optional) Re-Train the Model
-If you want to view the evaluation metrics or re-train the XGBoost model from scratch, run the main pipeline script:
+---
+
+## (Optional) For Developers
+If you want to look under the hood and re-train the AI model yourself, you can run the main pipeline script:
 ```bash
 python main.py
 ```
-
-## Project Structure
-- `data/` - Contains the raw training dataset (`dataset.csv`).
-- `models/` - Stores the compiled and serialized XGBoost model (`model.pkl`).
-- `src/` - The core ML pipeline (data loaders, feature engineers, and predictors).
-- `templates/` & `static/` - The HTML and CSS files for the frontend web interface.
-- `app.py` - The Flask web server.
-- `main.py` - The script to orchestrate the training pipeline.
+This will load the raw data, train the AI, and print out a detailed accuracy report in your terminal!
