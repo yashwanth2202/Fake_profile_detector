@@ -9,7 +9,7 @@ This project looks at simple details from a profile (like how many followers the
 - **Smart AI:** It automatically does the math to find suspicious patterns (like having 5,000 follows but 0 posts).
 - **Fast Results:** It gives you an instant verdict: "**Looks Legit!**" or "**Looks like a Bot!**"
 
-https://github.com/yashwanth2202/Fake_profile_detector/raw/main/assets/demo.mp4
+<video src="https://raw.githubusercontent.com/yashwanth2202/Fake_profile_detector/main/assets/demo.mp4" controls width="100%"></video>
 
 ---
 
