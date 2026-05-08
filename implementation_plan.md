@@ -1,15 +1,8 @@
 # Building the Fake Profile Detector (Step-by-Step)
 
-Since you are new to this, we will build this machine learning project one small piece at a time. I will write the code, and as we go through each step, I will explain exactly **what** the code does and **why** we need it. 
-
 Machine learning projects are like assembly lines. Data comes in at one end, it gets cleaned up, the model learns from it, and at the other end, we get predictions. We will build each station of this assembly line in the `src/` folder.
 
 ## User Review Required
-
-> [!IMPORTANT]
-> Please review the sequence below. If this looks good to you, click "Approve" and we will start with Step 1!
-
-## Proposed Changes
 
 Here is the roadmap we will follow:
 
