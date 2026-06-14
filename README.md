@@ -1,7 +1,7 @@
 
-# InstaGuard: Fake Profile Detector 
+# Fake Profile Detector 
 
-Have you ever wondered if an Instagram account is a real person or just a bot? **InstaGuard** uses Artificial Intelligence to figure it out for you!
+Have you ever wondered if an Instagram account is a real person or just a bot? **Fake Profile Detector** uses Artificial Intelligence to figure it out for you!
 
 This project looks at simple details from a profile (like how many followers they have, if they have a profile picture, and their username) and predicts if the account is fake or real with over 90% accuracy.
 
