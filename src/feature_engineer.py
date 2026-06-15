@@ -19,7 +19,6 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     # Feature 3: Has Full Name
     # 1 if they have words in their full name, 0 if empty
     df_engineered['has_fullname'] = (df_engineered['fullname words'] > 0).astype(int)
-    
     # Feature 4: Posts-to-Following Ratio
     # High follows but 0 posts is a strong bot indicator
     df_engineered['posts_following_ratio'] = df_engineered['#posts'] / (df_engineered['#follows'] + 1)
